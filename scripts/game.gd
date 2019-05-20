@@ -10,7 +10,7 @@ var current_max_interval
 var current_min_interval
 var last_spawn_height
 var screen_size
-#var platform_count
+var platform_count
 
 func _ready():
 	last_spawn_height = get_viewport().get_visible_rect().size.y
@@ -24,8 +24,6 @@ func _spawn_first_platforms():
 		_spawn_platform()
 
 func _spawn_platform():
-#	platform_count += platform_count
-#	print("platform count:  " + str(platform_count) + " platforms")
 	randomize()
 	var index
 	var new_platform

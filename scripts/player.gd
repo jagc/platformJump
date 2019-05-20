@@ -45,6 +45,8 @@ func _process(delta):
 		position.x += speed * delta
 	elif Input.is_action_pressed("ui_accept"):
 		jump()
+		
+	_teleport_to_other_side_of_screen()
 
 func jump():
 	if jumping:
@@ -69,3 +71,10 @@ func _decrement_jump(delta):
 		current_jump_force = 0
 		jumping = false
 		animated_sprite.play("idle")
+		
+
+func _teleport_to_other_side_of_screen():
+	if position.x > screen_width:
+		position.x = 0
+	elif position.x <= 0:
+		position.x = screen_width
