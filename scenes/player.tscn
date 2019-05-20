@@ -22,6 +22,7 @@ animations = [ {
 } ]
 
 [node name="player" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

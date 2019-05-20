@@ -4,12 +4,13 @@ export(Array) var platforms
 
 const MIN_INTERVAL = 100
 const MAX_INTERVAL = 250
-const INITIAL_PLATFORMS_COUNT = 40
+const INITIAL_PLATFORMS_COUNT = 10
 
 var current_max_interval
 var current_min_interval
 var last_spawn_height
 var screen_size
+#var platform_count
 
 func _ready():
 	last_spawn_height = get_viewport().get_visible_rect().size.y
@@ -23,6 +24,8 @@ func _spawn_first_platforms():
 		_spawn_platform()
 
 func _spawn_platform():
+#	platform_count += platform_count
+#	print("platform count:  " + str(platform_count) + " platforms")
 	randomize()
 	var index
 	var new_platform
@@ -39,4 +42,6 @@ func _spawn_platform():
 	current_max_interval = clamp(current_max_interval, MIN_INTERVAL, MAX_INTERVAL)
 	current_min_interval = clamp(current_min_interval, MIN_INTERVAL, MAX_INTERVAL / 0.75)
 	
-	
+func _on_player_just_jumped():
+	for counter in range(3):
+		_spawn_platform()

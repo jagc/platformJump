@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-
-
 onready var animated_sprite = $AnimatedSprite
 
 const GRAVITY = 1500
@@ -17,9 +15,10 @@ var half_sprite_width
 var jumping = false
 var current_jump_force = 0
 var current_gravity = 0
+var highest_reached_position = 300
+var death_position_offset = 1200
 
-
-
+signal just_jumped
 
 func _ready():
 	screen_width = get_viewport_rect().size.x
@@ -33,6 +32,10 @@ func _process(delta):
 	else:
 		position.y -= current_jump_force
 		_decrement_jump(delta)
+		
+	highest_reached_position = position.y if position.y < highest_reached_position else highest_reached_position
+	if position.y >= highest_reached_position + death_position_offset:
+		die()
 	
 	if Input.is_action_pressed("close"):
 		get_tree().quit()
@@ -50,6 +53,10 @@ func jump():
 	jumping = true
 	current_jump_force = JUMP_FORCE
 	animated_sprite.play("jump")
+	emit_signal("just_jumped")
+
+func die():
+	get_tree().reload_current_scene()
 
 func _increment_gravity(delta):
 	current_gravity += GRAVITY_INCREMENT * delta

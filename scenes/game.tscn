@@ -9,15 +9,10 @@
 script = ExtResource( 1 )
 platforms = [ ExtResource( 2 ), ExtResource( 3 ) ]
 
-[node name="grassPlatform6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 583.665, 1328.95 )
-
 [node name="grassPlatform7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 363.568, 1321.36 )
-
-[node name="grassPlatform8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 124.497, 1328.95 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 388.92, 858.666 )
 collision/safe_margin = 1.0
+[connection signal="just_jumped" from="player" to="." method="_on_player_just_jumped"]
