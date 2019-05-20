@@ -482,9 +482,9 @@ text = "120
 "
 
 [node name="Button" type="Button" parent="."]
-margin_left = 199.172
-margin_top = 942.747
-margin_right = 543.172
-margin_bottom = 1051.75
+margin_left = 200.639
+margin_top = 955.059
+margin_right = 571.639
+margin_bottom = 1097.06
 theme = SubResource( 1 )
 text = "Play"
