@@ -10,5 +10,5 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "player":
-		if body.position.y < position.y:
+		if body.position.y <= position.y:
 			body.jump()

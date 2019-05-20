@@ -6,7 +6,7 @@
 [ext_resource path="res://player/bunny1_jump.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 60.1734, 95.0297 )
+extents = Vector2( 60.1734, 97.6708 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
