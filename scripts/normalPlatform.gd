@@ -5,6 +5,7 @@ onready var sprite = $Sprite
 const SPRING_CHANCE = 5
 
 var spring_path = "res://scenes/spring.tscn"
+var platform_counter = 0
 
 var sprite_half_width
 
@@ -21,3 +22,6 @@ func _on_body_entered(body):
 	if body.name == "player":
 		if body.position.y <= position.y:
 			body.jump()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	self.queue_free()

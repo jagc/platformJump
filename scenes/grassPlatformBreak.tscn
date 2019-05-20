@@ -34,3 +34,8 @@ explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource( 2 )
 texture = ExtResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -0.500679, 0.751038 )
+scale = Vector2( 18.9747, 4.68006 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

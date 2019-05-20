@@ -18,3 +18,8 @@ offset = 232.557
 rotate = false
 
 [node name="platform" parent="follow" instance=ExtResource( 2 )]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -0.618912, -1.39461 )
+scale = Vector2( 9.53811, 2.34487 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

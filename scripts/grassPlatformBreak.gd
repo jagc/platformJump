@@ -17,3 +17,6 @@ func _on_body_entered(body):
 			sprite.queue_free()
 			collision.queue_free()
 			particles.emitting = true
+
+func _on_VisibilityNotifier2D_screen_exited():
+	self.queue_free()

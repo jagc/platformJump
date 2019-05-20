@@ -19,3 +19,7 @@ func _process(delta):
 		direction = -1
 	elif direction < 0 and follow.unit_offset < 0.01:
 		direction = 1
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	self.queue_free()
