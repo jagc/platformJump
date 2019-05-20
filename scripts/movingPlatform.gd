@@ -1,13 +1,21 @@
 extends Path2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var speed = 250
 
-# Called when the node enters the scene tree for the first time.
+onready var follow = $follow
+onready var platform = $follow/platform
+
+var direction = 1 #is it moving left or right?
+var sprite_half_width
+
 func _ready():
-	pass # Replace with function body.
+	randomize()
+	direction = 1 if rand_range(0, 100) > 50 else -1
+	sprite_half_width = platform.sprite_half_width
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	follow.offset += speed * direction * delta
+	if direction > 0 and follow.unit_offset > 0.99:
+		direction = -1
+	elif direction < 0 and follow.unit_offset < 0.01:
+		direction = 1

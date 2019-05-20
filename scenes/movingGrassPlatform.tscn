@@ -17,4 +17,4 @@ position = Vector2( -0.237835, -1.44595 )
 offset = 232.557
 rotate = false
 
-[node name="grassPlatform" parent="follow" instance=ExtResource( 2 )]
+[node name="platform" parent="follow" instance=ExtResource( 2 )]
