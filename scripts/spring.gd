@@ -9,9 +9,13 @@ var height
 func _ready():
 	# obtains height of sprite
 	height = animation.frames.get_frame("idle", 0).get_height()
-	connect("body_entered", self, "_on_body_entered")
+	
+	var connect = connect("body_entered", self, "_on_body_entered", [], 1)
+	if connect != OK:
+		printerr('connection failed')
 	
 func _on_body_entered(body):
 	if body.name == "player" and body.position.y < position.y and !body.jumping:
 		body.add_impulse(impulse)
 		animation.play("spring")
+		

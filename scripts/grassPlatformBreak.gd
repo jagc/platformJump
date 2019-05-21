@@ -8,7 +8,10 @@ var sprite_half_width
 
 func _ready():
 	sprite_half_width = sprite.texture.get_width() / 2
-	connect("body_entered", self, "_on_body_entered")
+	
+	var connect = connect("body_entered", self, "_on_body_entered", [], 1)
+	if connect != OK:
+		printerr('connection failed')
 	
 func _on_body_entered(body):
 	if body.name == "player" and !body.jumping:
