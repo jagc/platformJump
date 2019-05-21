@@ -1,5 +1,11 @@
 extends Node
 
+onready var highscore = $highScore
+
+func _ready():
+	var highscore_value = str(playerData.load_highscore())
+	highscore.bbcode_text = "[center]"+ highscore_value +"[/center]"
+
 func _on_Button_pressed():
 	_change_scene()
 

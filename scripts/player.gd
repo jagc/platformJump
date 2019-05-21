@@ -68,6 +68,7 @@ func add_impulse(impulse):
 	animated_sprite.play("jump")
 
 func die():
+	playerData.save_highscore(score)
 	get_tree().reload_current_scene()
 
 func _increment_gravity(delta):

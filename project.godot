@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 levelManager="*res://scripts/levelManager.gd"
+playerData="*res://scripts/playerData.gd"
 
 [display]
 
