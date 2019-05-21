@@ -10,6 +10,7 @@ const JUMP_FORCE = 40
 export var speed = 500
 
 var screen_width
+var screen_height
 var half_sprite_width
 
 var jumping = false
@@ -23,6 +24,7 @@ signal just_jumped
 
 func _ready():
 	screen_width = get_viewport_rect().size.x
+	screen_height = get_viewport_rect().size.y
 	half_sprite_width = animated_sprite.frames.get_frame("idle", 0).get_width() / 2
 	current_gravity = GRAVITY
 

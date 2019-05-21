@@ -5,7 +5,6 @@ onready var sprite = $Sprite
 const SPRING_CHANCE = 5
 
 var spring_path = "res://scenes/spring.tscn"
-var platform_counter = 0
 
 var sprite_half_width
 

@@ -23,11 +23,11 @@ func _ready():
 	screen_size = get_viewport().get_visible_rect().size.x
 	_spawn_first_platforms()
 
-func _process(delta):
+func _process(_delta):
 	score_text.text = str(player.score)
 
 func _spawn_first_platforms():
-	for counter in range(INITIAL_PLATFORMS_COUNT):
+	for _counter in range(INITIAL_PLATFORMS_COUNT):
 		_spawn_platform()
 
 func _spawn_platform():
@@ -52,5 +52,5 @@ func _spawn_platform():
 	current_min_interval = clamp(current_min_interval, MIN_INTERVAL, MAX_INTERVAL / 0.75)
 	
 func _on_player_just_jumped():
-	for counter in range(3):
+	for _counter in range(3):
 		_spawn_platform()
