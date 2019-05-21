@@ -27,46 +27,64 @@ func _ready():
 	current_gravity = GRAVITY
 
 func _process(delta):
+	_process_jumping(delta)
+		
+	highest_reached_position = position.y if position.y < highest_reached_position else highest_reached_position
+	
+	_process_score()
+	
+	_process_death()
+	
+	_process_input(delta)
+	
+	_process_screen_boundary_checks()
+
+func _process_jumping(delta):
 	if !jumping:
 		_increment_gravity(delta)
 		position.y += current_gravity * delta
 	else:
 		position.y -= current_jump_force
 		_decrement_jump(delta)
-		
-	highest_reached_position = position.y if position.y < highest_reached_position else highest_reached_position
+
+func _process_score():
 	score = int(abs(highest_reached_position) - 300)
 	score = score if score > 0 else 0
+
+func _process_death():
 	if position.y >= highest_reached_position + death_position_offset:
 		die()
-	
-	if Input.is_action_pressed("close"):
-		get_tree().quit()
+
+func _process_input(delta):
 	if Input.is_action_pressed("ui_left"):
 		position.x -= speed * delta
 	elif Input.is_action_pressed("ui_right"):
 		position.x += speed * delta
 	elif Input.is_action_pressed("ui_accept"):
 		jump()
-		
-	_teleport_to_other_side_of_screen()
+
+func _process_screen_boundary_checks():
+	if position.x > screen_width:
+		position.x = 0
+	elif position.x <= 0:
+		position.x = screen_width
 
 func jump():
 	if jumping:
 		return
-	current_gravity = 0
-	jumping = true
-	current_jump_force = JUMP_FORCE
-	animated_sprite.play("jump")
+	_set_jump_vars(JUMP_FORCE)
 	emit_signal("just_jumped")
 
 func add_impulse(impulse):
 	emit_signal("just_jumped")
+	_set_jump_vars(impulse)
+	
+func _set_jump_vars(force):
 	current_gravity = 0
 	jumping = true
-	current_jump_force = impulse
+	current_jump_force = force
 	animated_sprite.play("jump")
-
+	
 func die():
 	playerData.save_highscore(score)
 	levelManager.change_scene("menu")
@@ -82,10 +100,3 @@ func _decrement_jump(delta):
 		current_jump_force = 0
 		jumping = false
 		animated_sprite.play("idle")
-		
-
-func _teleport_to_other_side_of_screen():
-	if position.x > screen_width:
-		position.x = 0
-	elif position.x <= 0:
-		position.x = screen_width

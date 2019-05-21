@@ -15,7 +15,6 @@ var current_max_interval
 var current_min_interval
 var last_spawn_height
 var screen_size
-var platform_count
 
 func _ready():
 	last_spawn_height = get_viewport().get_visible_rect().size.y

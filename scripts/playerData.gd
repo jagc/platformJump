@@ -18,9 +18,7 @@ func load_highscore():
 	var save_file = File.new()
 	if !save_file.file_exists(SAVE_FILE_PATH):
 		return 0
-		
-	var highscore
-	
+			
 	save_file.open(SAVE_FILE_PATH, File.READ)
 	var data = parse_json(save_file.get_line())
 	return data["highscore"]
