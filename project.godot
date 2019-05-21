@@ -19,6 +19,10 @@ config/name="platformJump"
 run/main_scene="res://scenes/menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+levelManager="*res://scripts/levelManager.gd"
+
 [display]
 
 window/size/width=720
@@ -28,6 +32,10 @@ window/size/test_height=640
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
 
 [input]
 
