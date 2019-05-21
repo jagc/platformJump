@@ -69,7 +69,7 @@ func add_impulse(impulse):
 
 func die():
 	playerData.save_highscore(score)
-	get_tree().reload_current_scene()
+	levelManager.change_scene("menu")
 
 func _increment_gravity(delta):
 	current_gravity += GRAVITY_INCREMENT * delta
