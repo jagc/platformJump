@@ -2,6 +2,8 @@ extends Node
 
 const SCENE_PATH = "res://scenes/"
 
+var current_scene_name
+
 func change_scene(scene_name):
 	deffer_call("_deffered_change_scene", scene_name)
 
@@ -17,9 +19,11 @@ func _deffered_change_scene(scene_name):
 	
 func _process(_delta):
 	if Input.is_action_pressed("close"):
-		get_tree().quit()
+		if current_scene_name == "menu":
+			get_tree().quit()
+		elif current_scene_name == "game":
+			change_scene("menu")
 		
 func deffer_call(func_name, func_param):
 	call_deferred(func_name, func_param)
-	
 	

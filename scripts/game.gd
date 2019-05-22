@@ -8,7 +8,7 @@ onready var score_text = $ui/score
 
 const MIN_INTERVAL = 100
 const MAX_INTERVAL = 250
-const INITIAL_PLATFORMS_COUNT = 10
+const INITIAL_PLATFORMS_COUNT = 1
 const SPECIAL_PLATFORM_CHANCE = 20
 
 var current_max_interval
@@ -17,6 +17,7 @@ var last_spawn_height
 var screen_size
 
 func _ready():
+	levelManager.current_scene_name = self.get_name()
 	last_spawn_height = get_viewport().get_visible_rect().size.y
 	current_max_interval = MIN_INTERVAL
 	current_min_interval = MIN_INTERVAL
@@ -52,5 +53,6 @@ func _spawn_platform():
 	current_min_interval = clamp(current_min_interval, MIN_INTERVAL, MAX_INTERVAL / 0.75)
 	
 func _on_player_just_jumped():
+	pass
 	for _counter in range(3):
 		_spawn_platform()
