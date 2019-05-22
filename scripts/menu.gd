@@ -10,8 +10,8 @@ func _ready():
 func _on_Button_pressed():
 	_change_scene()
 
-func _on_Button_gui_input(event):
-	if event.is_action_pressed("ui_accept"):
+func _process(_delta):
+	if Input.is_action_pressed("ui_accept"):
 		_change_scene()
 
 func _change_scene():

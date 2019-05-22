@@ -490,5 +490,4 @@ margin_right = 571.639
 margin_bottom = 1097.06
 theme = SubResource( 1 )
 text = "Play"
-[connection signal="gui_input" from="Button" to="." method="_on_Button_gui_input"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
