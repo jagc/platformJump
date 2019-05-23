@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShortJump.wav-18bf05d4b8b599b5cf1f7f83a3ab6458.sample"
+
+[deps]
+
+source_file="res://audio/ShortJump.wav"
+dest_files=[ "res://.import/ShortJump.wav-18bf05d4b8b599b5cf1f7f83a3ab6458.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

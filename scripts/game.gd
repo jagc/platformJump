@@ -5,6 +5,7 @@ export(Array) var special_platforms
 
 onready var player = $player
 onready var score_text = $ui/score
+#onready var bgAudio = $bgAudio
 
 const MIN_INTERVAL = 100
 const MAX_INTERVAL = 250

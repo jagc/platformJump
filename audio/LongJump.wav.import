@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LongJump.wav-8b4672645d30f8073f6fdc48e77a5bce.sample"
+
+[deps]
+
+source_file="res://audio/LongJump.wav"
+dest_files=[ "res://.import/LongJump.wav-8b4672645d30f8073f6fdc48e77a5bce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
