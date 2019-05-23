@@ -20,8 +20,6 @@ var highest_reached_position = 300
 var death_position_offset = 1200
 var score = 0
 
-signal just_jumped
-
 func _ready():
 	screen_width = get_viewport_rect().size.x
 	screen_height = get_viewport_rect().size.y
@@ -75,10 +73,8 @@ func jump():
 	if jumping:
 		return
 	_set_jump_vars(JUMP_FORCE)
-	emit_signal("just_jumped")
 
 func add_impulse(impulse):
-	emit_signal("just_jumped")
 	_set_jump_vars(impulse)
 	
 func _set_jump_vars(force):

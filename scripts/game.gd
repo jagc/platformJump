@@ -8,8 +8,8 @@ onready var score_text = $ui/score
 
 const MIN_INTERVAL = 100
 const MAX_INTERVAL = 250
-const INITIAL_PLATFORMS_COUNT = 1
-const SPECIAL_PLATFORM_CHANCE = 20
+const INITIAL_PLATFORMS_COUNT = 10
+const SPECIAL_PLATFORM_CHANCE = 100
 
 var current_max_interval
 var current_min_interval
@@ -29,7 +29,7 @@ func _process(_delta):
 
 func _spawn_first_platforms():
 	for _counter in range(INITIAL_PLATFORMS_COUNT):
-		_spawn_platform()
+		_spawn_caller()
 
 func _spawn_platform():
 	randomize()
@@ -41,7 +41,8 @@ func _spawn_platform():
 	else:
 		index = rand_range(0, platforms.size())
 		new_platform = platforms[index].instance()
-	
+
+	new_platform.connect("just_exited", self, "on_platform_just_exited")
 	add_child(new_platform)
 	var spawn_x = rand_range(0 + new_platform.sprite_half_width, screen_size - new_platform.sprite_half_width)
 	var spawn_position = Vector2(spawn_x, last_spawn_height)
@@ -51,8 +52,9 @@ func _spawn_platform():
 	current_max_interval += 7.5
 	current_max_interval = clamp(current_max_interval, MIN_INTERVAL, MAX_INTERVAL)
 	current_min_interval = clamp(current_min_interval, MIN_INTERVAL, MAX_INTERVAL / 0.75)
-	
-func _on_player_just_jumped():
-	pass
-	for _counter in range(3):
-		_spawn_platform()
+
+func on_platform_just_exited():
+	_spawn_caller()
+
+func _spawn_caller():
+	call_deferred("_spawn_platform")

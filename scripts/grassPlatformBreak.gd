@@ -6,6 +6,8 @@ onready var particles = $particles
 
 var sprite_half_width
 
+signal just_exited
+
 func _ready():
 	sprite_half_width = sprite.texture.get_width() / 2
 	
@@ -22,4 +24,5 @@ func _on_body_entered(body):
 			particles.emitting = true
 
 func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("just_exited")
 	self.queue_free()

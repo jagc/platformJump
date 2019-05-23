@@ -30,3 +30,6 @@ shape = SubResource( 1 )
 [node name="animation" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "spring"
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

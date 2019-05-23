@@ -8,6 +8,8 @@ onready var platform = $follow/platform
 var direction = 1 #is it moving left or right?
 var sprite_half_width
 
+signal just_exited
+
 func _ready():
 	randomize()
 	direction = 1 if rand_range(0, 100) > 50 else -1
@@ -22,4 +24,5 @@ func _process(delta):
 
 
 func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("just_exited")
 	self.queue_free()

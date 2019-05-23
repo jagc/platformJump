@@ -18,13 +18,16 @@ platforms = [ ExtResource( 2 ), ExtResource( 3 ) ]
 special_platforms = [ ExtResource( 4 ), ExtResource( 5 ) ]
 
 [node name="grassPlatform7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 363.568, 1321.36 )
+visible = false
+position = Vector2( 365.468, 1290.22 )
+scale = Vector2( 2.38744, 0.755918 )
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 388.92, 858.666 )
 collision/safe_margin = 1.0
 
 [node name="ui" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = 5
 
 [node name="score" type="RichTextLabel" parent="ui"]
@@ -37,6 +40,7 @@ custom_colors/default_color = Color( 0.188235, 0.537255, 0.156863, 1 )
 text = "965"
 
 [node name="background" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = -5
 
 [node name="Sprite" type="Sprite" parent="background"]
@@ -54,4 +58,3 @@ texture = ExtResource( 10 )
 [node name="Sprite4" type="Sprite" parent="background"]
 position = Vector2( 199.282, 640.911 )
 texture = ExtResource( 11 )
-[connection signal="just_jumped" from="player" to="." method="_on_player_just_jumped"]

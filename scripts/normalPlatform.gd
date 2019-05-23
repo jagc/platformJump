@@ -8,9 +8,10 @@ var spring_path = "res://scenes/spring.tscn"
 
 var sprite_half_width
 
+signal just_exited
+
 func _ready():
-	randomize()
-	
+	randomize()	
 	var connect = connect("body_entered", self, "_on_body_entered", [], 1)
 	if connect != OK:
 		printerr('connection failed')
@@ -26,4 +27,5 @@ func _on_body_entered(body):
 			body.jump()
 
 func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("just_exited")
 	self.queue_free()
