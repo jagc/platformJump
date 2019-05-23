@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -224.728, -62.0013, 0, 0, 0, 0, -1.55319, -0.913315, 0, 0, 0, 0, 224, -64 )
+"points": PoolVector2Array( 0, 0, 0, 0, -288, -128, 0, 0, 0, 0, -1.55319, -0.913315, 0, 0, 0, 0, 288, -128 )
 }
 
 [node name="movingGrassPlatform" type="Path2D"]

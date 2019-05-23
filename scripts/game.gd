@@ -10,14 +10,14 @@ const MIN_INTERVAL = 100
 const MAX_INTERVAL = 250
 const INITIAL_PLATFORMS_COUNT = 10
 const SPECIAL_PLATFORMS_CHANCE_CAP = 90
-const SPECIAL_PLATFORMS_CHANCE_INCREMENT = 5
+export var SPECIAL_PLATFORMS_CHANCE_INCREMENT = 7.5
 
 var special_platforms_chance = 0
 var current_max_interval
 var current_min_interval
 var last_spawn_height
 var screen_size
-var player_score_checkpoint = 1000
+export var player_score_checkpoint = 1000
 var is_player_score_checkpoint = false
 
 func _ready():

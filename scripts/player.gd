@@ -5,7 +5,7 @@ onready var animated_sprite = $AnimatedSprite
 const GRAVITY = 1500
 const GRAVITY_INCREMENT = 2500
 const JUMP_DECREMENT = 100
-const JUMP_FORCE = 40
+const JUMP_FORCE = 50
 
 export var speed = 500
 
