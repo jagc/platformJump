@@ -12,6 +12,8 @@ func play(audioSoundName, optionals = {}):
 	_setSoundProperties(sound, optionals)
 	
 	sound.play()
+	
+	return sound
 
 func _setSoundProperties(sound, optionals):
 	var volume_db = (100 if not optionals.has('volume_db') else optionals['volume_db'])
