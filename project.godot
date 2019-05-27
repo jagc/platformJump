@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 levelManager="*res://scripts/levelManager.gd"
 playerData="*res://scripts/playerData.gd"
+audioManager="*res://scripts/audioManager.gd"
 
 [display]
 

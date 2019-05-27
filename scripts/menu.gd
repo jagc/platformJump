@@ -1,5 +1,7 @@
 extends Node
 
+#export(PackedScene) var audioNode
+
 onready var highscore = $highScore
 
 func _ready():
@@ -11,9 +13,12 @@ func _on_Button_pressed():
 	_change_scene()
 
 func _process(_delta):
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
 		_change_scene()
 
 func _change_scene():
+	var volume_db = 10
+	var pitch_scale = 3
+	audioManager.play("confirmButton", {volume_db = volume_db, pitch_scale = pitch_scale})
 	levelManager.change_scene("game")
 #	$"/root/levelManager".change_scene("game") # alternative way of using a singleton
