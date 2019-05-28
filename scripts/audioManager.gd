@@ -1,6 +1,5 @@
 extends Node
 
-#var audioScene = preload("res://scenes/audioPlayer.tscn") as PackedScene
 var audioScene = load("res://scenes/audioPlayer.tscn") as PackedScene
 
 # sample way to call it:
